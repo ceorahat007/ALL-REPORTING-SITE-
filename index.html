@@ -1,0 +1,500 @@
+<!DOCTYPE html>  <html lang="en">    <head>      <meta charset="UTF-8">      
+<meta name="viewport" content="width=device-width, initial-scale=1.0">      
+<title>RED-TEAM BD SECURITY OPRATION 👑</title>  <style>    *{  
+margin:0;  
+padding:0;  
+box-sizing:border-box;  
+}  body{
+background:
+linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+url("https://empty-silver-9v0rgfsp8c.edgeone.app/IMG-20251229-WA0117.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+
+color:white;
+font-family:'Courier New', monospace;
+text-align:center;
+overflow-x:hidden;
+
+}
+
+/* Animated Background */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(45deg,#00ffcc,#ff00ff,#00ff00,#00ccff);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+opacity:0.12;
+z-index:-1;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+marquee{
+color:#00ff00;
+font-size:15px;
+background:black;
+padding:12px 0;
+border-top:2px solid lime;
+border-bottom:2px solid lime;
+box-shadow:0 0 15px lime;
+}
+
+h1{
+color:#00ffee;
+text-shadow:0 0 15px cyan;
+margin-top:20px;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px cyan;
+}
+to{
+text-shadow:0 0 30px cyan;
+}
+}
+
+.creator{
+color:#ffcc00;
+font-size:20px;
+margin-top:10px;
+}
+
+.main-image{
+width:260px;
+border-radius:15px;
+margin:25px 0;
+box-shadow:0 0 25px lime;
+border:3px solid lime;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
+}
+
+.red-text{
+color:red;
+font-size:22px;
+margin:20px 0;
+text-shadow:0 0 10px red;
+}
+
+.section-title{
+font-size:24px;
+margin-top:35px;
+margin-bottom:15px;
+color:#00ffee;
+text-shadow:0 0 10px cyan;
+}
+
+.btn{
+display:block;
+width:320px;
+margin:12px auto;
+padding:14px;
+font-size:16px;
+background:rgba(0,0,0,0.7);
+color:white;
+border:2px solid lime;
+border-radius:12px;
+text-decoration:none;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:rgba(0,255,255,0.3);
+transition:0.5s;
+}
+
+.btn:hover::before{
+left:100%;
+}
+
+.btn:hover{
+background:lime;
+color:black;
+transform:scale(1.05);
+box-shadow:0 0 20px lime;
+}
+
+.warning{
+background:red;
+padding:15px;
+margin:35px 20px;
+border-radius:15px;
+font-weight:bold;
+box-shadow:0 0 20px red;
+}
+
+.dev-box{
+background:rgba(0,0,0,0.7);
+padding:25px;
+margin:40px 20px;
+border-radius:15px;
+border:2px solid cyan;
+box-shadow:0 0 20px cyan;
+}
+
+.dev-box h2{
+margin-bottom:15px;
+color:#00ffee;
+}
+
+.dev-box p{
+margin:10px 0;
+font-size:18px;
+}
+
+/* POPUP */
+
+.dialog-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+backdrop-filter:blur(5px);
+}
+
+.dialog-container{
+width:90%;
+max-width:400px;
+border-radius:25px;
+padding:25px;
+text-align:center;
+background:linear-gradient(45deg,#000000,#001f1f,#003333);
+border:2px solid cyan;
+box-shadow:0 0 30px cyan;
+animation:popupAnime 1s ease;
+}
+
+@keyframes popupAnime{
+from{
+transform:scale(0.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.logo-area img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:4px solid cyan;
+box-shadow:0 0 25px cyan;
+animation:spin 10s linear infinite;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+.popup-title{
+margin-top:20px;
+font-size:28px;
+color:#00ffee;
+text-shadow:0 0 15px cyan;
+}
+
+.popup-text{
+margin-top:15px;
+line-height:1.6;
+color:#ddd;
+}
+
+.popup-buttons{
+margin-top:25px;
+display:flex;
+gap:10px;
+}
+
+.popup-buttons button,
+.popup-buttons a{
+flex:1;
+padding:12px;
+border:none;
+border-radius:12px;
+font-size:16px;
+cursor:pointer;
+text-decoration:none;
+color:white;
+transition:0.4s;
+}
+
+.close-btn{
+background:red;
+}
+
+.join-btn{
+background:#0088cc;
+}
+
+.popup-buttons button:hover,
+.popup-buttons a:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px white;
+}
+
+.hidden{
+display:none;
+}
+
+</style>  </head>  <body>  <!-- POPUP -->  <div id="popup" class="dialog-overlay">  <div class="dialog-container">  <div class="logo-area">
+<img src="https://iili.io/ByitFyb.jpg" alt="Logo">
+
+</div>  <div class="popup-title">      
+Assalamu Alaikum      
+</div>  <div class="popup-text">      
+Welcome To RED-TEAM BD SECURITY OPRATION 🔥<br><br>      
+Telegram Join করে আমাদের সাথে যুক্ত হন      
+</div>  <div class="popup-buttons">  <button class="close-btn" onclick="closePopup()">      
+CLOSE      
+</button>  <a href="https://t.me/ceorahat007" class="join-btn" target="_blank">      
+TELEGRAM JOIN      
+</a>  </div>  </div>  </div>  <!-- TOP -->  <marquee>      
+🔥 RED-TEAM BD SECURITY OPRATION 👑 | ALL REPORT IN ONE SITE | STAY SAFE ONLINE 🔥      
+</marquee>  <h1>      
+RED-TEAM BD SECURITY OPRATION 👑      
+</h1>  <div class="creator">      
+CREATOR RAHAT      
+</div>  <img src="https://empty-silver-9v0rgfsp8c.edgeone.app/IMG-20251229-WA0117.jpg"      
+class="main-image">  <p class="red-text">      
+All Report in One Site BY RAHAT      
+</p>  <!-- PHISHING -->  <div class="section-title">      
+Phishing & Malware Report      
+</div>  <a href="https://safebrowsing.google.com/safebrowsing/report_phish/" class="btn" target="_blank">      
+Report Phishing Link      
+</a>  <a href="https://www.microsoft.com/en-us/wdsi/support/report-unsafe-site" class="btn" target="_blank">      
+Report Unsafe Site      
+</a>  <a href="https://www.virustotal.com/gui/home/upload" class="btn" target="_blank">      
+Virus & Malware Checker      
+</a>  <a href="https://example.com/phishing" class="btn" target="_blank">      
+Report Phishing Link (Alt)      
+</a>  <!-- FACEBOOK -->  <div class="section-title">      
+Facebook All Report      
+</div>  <a href="https://m.facebook.com/help/contact/295309487309948" class="btn" target="_blank">      
+Imposter Account Report      
+</a>  <a href="https://m.facebook.com/help/contact/430253071144967" class="btn" target="_blank">      
+Defamation Report      
+</a>  <a href="https://m.facebook.com/help/contact/trademarkform" class="btn" target="_blank">      
+Trademark Report      
+</a>  <a href="https://m.facebook.com/help/contact/516343134409068" class="btn" target="_blank">      
+Violation Report      
+</a>  <a href="https://m.facebook.com/help/contact/207005222725325" class="btn" target="_blank">      
+Sex Offender Report      
+</a>  <a href="https://m.facebook.com/help/contact/274459462613911" class="btn" target="_blank">      
+Something Report      
+</a>  <a href="https://m.facebook.com/help/contact/209046679279097" class="btn" target="_blank">      
+Child Account Report      
+</a>  <a href="https://m.facebook.com/help/266814220000812/" class="btn" target="_blank">      
+Group Report      
+</a>  <a href="https://m.facebook.com/help/355811251195044/" class="btn" target="_blank">      
+Page Report      
+</a>  <a href="https://m.facebook.com/help/327689333983073" class="btn" target="_blank">      
+18+ Report      
+</a>  <a href="https://m.facebook.com/help/212722115425932" class="btn" target="_blank">      
+Abusive Report      
+</a>  <a href="https://m.facebook.com/groups/712854522390211/" class="btn" target="_blank">      
+Child Care Report      
+</a>  <a href="https://m.facebook.com/help/contact/copyrightform" class="btn" target="_blank">      
+Copyright Report      
+</a>  <a href="https://web.facebook.com/help/contact/278770247037228" class="btn" target="_blank">      
+Indian Grievance Official      
+</a>  <!-- INSTAGRAM -->  <div class="section-title">      
+Instagram All Report      
+</div>  <a href="https://help.instagram.com/contact/653100351788502" class="btn" target="_blank">      
+Defamation Report      
+</a>  <a href="https://help.instagram.com/contact/636276399721841" class="btn" target="_blank">      
+Threads Report      
+</a>  <a href="https://help.instagram.com/contact/778323897161220" class="btn" target="_blank">      
+Violations Report      
+</a>  <a href="https://help.instagram.com/874680996209917/" class="btn" target="_blank">      
+Legal Removal      
+</a>  <a href="https://help.instagram.com/1359806704386690" class="btn" target="_blank">      
+Grievance Report      
+</a>  <a href="https://help.instagram.com/370054663112398" class="btn" target="_blank">      
+Imposter Report      
+</a>  <a href="https://help.instagram.com/contact/334013860059654" class="btn" target="_blank">      
+Sex Offender Report      
+</a>  <a href="https://help.instagram.com/484700649522086" class="btn" target="_blank">      
+Something Report      
+</a>  <a href="https://help.instagram.com/517920941588885" class="btn" target="_blank">      
+Child 13 Report      
+</a>  <a href="https://help.instagram.com/165828726894770" class="btn" target="_blank">      
+Abuse Report      
+</a>  <a href="https://help.instagram.com/contact/552695131608132" class="btn" target="_blank">      
+Copyright Report      
+</a>  <!-- TIKTOK -->  <div class="section-title">      
+TikTok All Report      
+</div>  <a href="https://www.tiktok.com/legal/report/us-privacy" class="btn" target="_blank">      
+Account Report      
+</a>  <a href="https://www.tiktok.com/legal/report/feedback" class="btn" target="_blank">      
+Report a Problem      
+</a>  <a href="https://support.tiktok.com/en/safety-hc/account-and-user-safety/content-violations-and-bans" class="btn" target="_blank">      
+Content Violation      
+</a>  <a href="https://support.tiktok.com/en/safety-hc/report-a-problem/report-sexual-abuse" class="btn" target="_blank">      
+Abuse Report      
+</a>  <a href="https://support.tiktok.com/en/safety-hc/report-a-problem/report-cyberbullying" class="btn" target="_blank">      
+Bullying Report      
+</a>  <a href="https://www.tiktok.com/legal/report/Copyright" class="btn" target="_blank">      
+Copyright Report      
+</a>  <a href="https://www.tiktok.com/legal/report/submit-requests" class="btn" target="_blank">      
+Impersonation Report      
+</a>  <a href="https://www.tiktok.com/legal/report/feedback" class="btn" target="_blank">      
+Under Age Report      
+</a>  <!-- LIVE SUPPORT -->  <div class="section-title">      
+All Live Chat & Support      
+</div>  <a href="https://www.bkash.com/en/help/livechat" class="btn" target="_blank">      
+Bkash Official      
+</a>  <a href="https://nagad.com.bd/contact/" class="btn" target="_blank">      
+Nagad Official      
+</a>  <a href="https://www.grameenphone.com/personal/customer-service/online-customer-service" class="btn" target="_blank">      
+MyGP Official      
+</a>  <a href="https://www.robi.com.bd/en/personal/support" class="btn" target="_blank">      
+Robi Official      
+</a>  <a href="https://www.bd.airtel.com/en/support" class="btn" target="_blank">      
+Airtel Official      
+</a>  <a href="https://banglalinkpabna.blogspot.com/p/chat-with-us.html?m=1" class="btn" target="_blank">      
+Banglalink Official      
+</a>  <a href="https://www.cid.gov.bd/hot-line-number-for-cyber-complain" class="btn" target="_blank">      
+Cyber Complaint      
+</a>  <!-- DEVELOPER -->  <div class="dev-box">  <h2>Developer Info</h2>  <p><b>RED-X RAHAT</b></p>  <p>      
+TELEGRAM: @ceorahat007      
+</p>  <p>      
+Facebook:      
+https://www.facebook.com/MOHAMMAD.RAHAT.OFFICIAL.007      
+</p>  </div>  <!-- WARNING -->  <div class="warning">      
+⚠️ Warning: This site is only for awareness and legal reporting purpose.      
+</div>  <script>    /* POPUP */  function closePopup(){
+document.getElementById("popup").classList.add("hidden");
+}
+
+/* MATRIX EFFECT */
+
+const canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+
+canvas.style.position = "fixed";
+canvas.style.top = "0";
+canvas.style.left = "0";
+canvas.style.zIndex = "-2";
+
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "REDTEAMBD0123456789";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+
+for(let x = 0; x < columns; x++){
+drops[x] = 1;
+}
+
+function draw(){
+
+ctx.fillStyle = "rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle = "#0f0";
+ctx.font = fontSize + "px monospace";
+
+for(let i = 0; i < drops.length; i++){
+
+const text = letters.charAt(      
+    Math.floor(Math.random() * letters.length)      
+);      
+
+ctx.fillText(text, i * fontSize, drops[i] * fontSize);      
+
+if(      
+    drops[i] * fontSize > canvas.height &&      
+    Math.random() > 0.975      
+){      
+    drops[i] = 0;      
+}      
+
+drops[i]++;
+
+}
+
+}
+
+setInterval(draw, 35);
+
+
+</script>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="bgMusic" autoplay loop>
+    <source src="ALL REPORTING.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+window.addEventListener('DOMContentLoaded', () => {
+
+    const music = document.getElementById('bgMusic');
+
+    music.volume = 1.0;
+
+    const autoPlay = music.play();
+
+    if (autoPlay !== undefined) {
+
+        autoPlay.catch(() => {
+
+            document.body.addEventListener('click', () => {
+                music.play();
+            }, { once:true });
+
+        });
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
